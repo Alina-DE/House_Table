@@ -1,0 +1,125 @@
+/* my reset css */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+/* my styling starts here */
+
+body {
+    height: 200vh;
+}
+table {
+    border-spacing: 15px;
+    margin: 25px auto;
+    box-shadow: 0 0 20px black;
+    background: darkgoldenrod;
+}
+table caption {
+    font-size: 20px;
+    font-weight: bold;
+    color: dodgerblue;
+    padding: 10px;  
+}
+table td {
+    height: 40px;
+    width: 50px;
+    /* padding: 5px; */
+    border: 1px solid;
+    background: darkblue;
+    text-align: center;
+    font-size: 18px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+table td:hover {
+    background: yellow;
+}
+
+.lift {
+    width: 95%;
+    height: 40px;
+    border-radius: 8px;
+    background: lightblue;
+    border: dotted dodgerblue;
+    box-shadow: 2px 5px gray;
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    animation: lift 15s infinite alternate;
+}
+
+.lift:hover {
+    animation-play-state: paused;
+    cursor: pointer;
+    background: blue;
+
+
+}
+
+.ghost {
+    text-shadow: 2px 5px gray;
+
+    position: absolute;
+    right: -20px;
+    bottom: -50px;
+
+    animation: ghost 5s infinite alternate;
+}
+
+.cat {
+    animation: cat 5s infinite paused;
+}
+
+.cat:hover {
+    animation-play-state: running;
+}
+
+@keyframes lift {
+    from {
+        position: absolute;
+        top: 90%; 
+    }
+    to {
+        position: absolute;
+        top: 0; 
+        overflow: visible;
+    }
+}
+
+
+@keyframes ghost {
+    0% {
+        position: absolute;
+        left: 100%;
+        top: 100%;
+        font-size: 10px;
+    }
+
+    50% {
+        position: absolute;
+        left: -20px;
+        top: 0;
+        font-size: 30px;
+    }
+
+    100% {
+        position: absolute;
+        left: -70px;
+        top: 110%;
+        font-size: 10px;
+    }
+}
+
+@keyframes cat {
+    100% {
+        transform: rotate(360deg);
+    }
+}
